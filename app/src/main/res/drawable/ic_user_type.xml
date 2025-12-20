@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- الولد الأول - الرأس في مكانه الصحيح -->
+    <path
+        android:fillColor="#666666"
+        android:pathData="M7.5,4c0,-1.11 0.89,-2 2,-2s2,0.89 2,2 -0.89,2 -2,2 -2,-0.89 -2,-2z" />
+
+    <!-- الولد الأول - الجسم -->
+    <path
+        android:fillColor="#666666"
+        android:pathData="M9.5,22v-7H9c-0.55,0 -1,-0.45 -1,-1v-4c0,-0.55 0.45,-1 1,-1h4c0.55,0 1,0.45 1,1v4c0,0.55 -0.45,1 -1,1h-0.5v7h-4z" />
+
+    <!-- الولد الثاني - الرأس في مكانه الصحيح -->
+    <path
+        android:fillColor="#666666"
+        android:pathData="M16,4c0,-1.11 0.89,-2 2,-2s2,0.89 2,2 -0.89,2 -2,2 -2,-0.89 -2,-2z" />
+
+    <!-- الولد الثاني - الجسم -->
+    <path
+        android:fillColor="#666666"
+        android:pathData="M20,22v-6h2.5l-2.54,-7.63C19.68,7.55 18.92,7 18.06,7h-0.12c-0.86,0 -1.63,0.55 -1.9,1.37L13.5,16H16v6h4z" />
+
+</vector>

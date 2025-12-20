@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- الصفحة الرئيسية -->
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home_outline"
+        android:title="الرئيسية" />
+
+    <!-- البحث -->
+    <item
+        android:id="@+id/nav_search"
+        android:icon="@drawable/ic_search_outline"
+        android:title="البحث" />
+
+    <!-- نشر عقار -->
+    <item
+        android:id="@+id/nav_add"
+        android:icon="@drawable/ic_add_outline"
+        android:title="نشر عقار" />
+
+    <!-- المفضلات -->
+    <item
+        android:id="@+id/nav_my_properties"
+        android:icon="@drawable/ic_my_properties"
+        android:title="عقاراتي" />
+
+</menu>

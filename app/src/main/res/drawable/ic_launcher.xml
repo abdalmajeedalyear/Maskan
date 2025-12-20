@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- خلفية ذهبية كاملة تملء كل المساحة -->
+    <path
+        android:fillColor="@color/gradient_gold"
+        android:pathData="M0,0h120v120H0z" />
+
+    <!-- تأثير إضاءة مركزية -->
+    <path
+        android:fillColor="#40FFFFFF"
+        android:pathData="M0,0h120v50H0z M0,70h120v50H0z" />
+
+    <!-- تأثير إشعاع من المركز -->
+    <path
+        android:fillColor="#20FFFFFF"
+        android:pathData="M60,60a40,40 0,1 1,0 0.1z" />
+
+    <!-- فيلا فاخرة - تم تكبيرها لملء المساحة بشكل أفضل -->
+    <group>
+        <!-- الهيكل الرئيسي -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M25,40h70v40H25z" />
+
+        <!-- ظل جانبي -->
+        <path
+            android:fillColor="#E8E8E8"
+            android:pathData="M25,40l8,40 -8,0 0,-40z" />
+
+        <!-- السقف الفاخر -->
+        <path
+            android:fillColor="#F8F8F8"
+            android:pathData="M20,35h80l-10,-20 -60,0 -10,20z" />
+
+        <!-- حافة السقف -->
+        <path
+            android:fillColor="#E0E0E0"
+            android:pathData="M20,35h80l0,-3 -80,0 0,3z" />
+
+        <!-- الأعمدة -->
+        <path
+            android:fillColor="#FAFAFA"
+            android:pathData="M30,35h6v45h-6z M84,35h6v45h-6z" />
+
+        <!-- تيجان الأعمدة -->
+        <path
+            android:fillColor="#E8E8E8"
+            android:pathData="M29,35h8v3h-8z M83,35h8v3h-8z" />
+    </group>
+
+    <!-- المدخل الفاخر -->
+    <group>
+        <!-- الباب الرئيسي -->
+        <path
+            android:fillColor="#4E342E"
+            android:pathData="M50,55h20v30H50z" />
+
+        <!-- إطار الباب -->
+        <path
+            android:strokeColor="#3E2723"
+            android:strokeWidth="1.5"
+            android:pathData="M50,55h20v30H50z" />
+
+        <!-- لوحة الباب -->
+        <path
+            android:fillColor="#5D4037"
+            android:pathData="M55,60h10v20h-10z" />
+
+        <!-- مقبض الباب الذهبي -->
+        <path
+            android:fillColor="#FFD700"
+            android:pathData="M65,70a2,2 0,1 1,-4 0a2,2 0,1 1,4 0z" />
+    </group>
+
+    <!-- النوافذ الكبيرة -->
+    <group>
+        <!-- نوافذ الطابق الأرضي -->
+        <path
+            android:fillColor="#E1F5FE"
+            android:pathData="M30,50h15v10H30z M75,50h15v10H75z" />
+
+        <!-- نوافذ الطابق الأول -->
+        <path
+            android:fillColor="#E1F5FE"
+            android:pathData="M30,65h15v10H30z M75,65h15v10H75z" />
+
+        <!-- إطار النوافذ -->
+        <path
+            android:strokeColor="#B3E5FC"
+            android:strokeWidth="1"
+            android:pathData="M30,50h15v10H30z M75,50h15v10H75z M30,65h15v10H30z M75,65h15v10H75z" />
+
+        <!-- تقسيمات النوافذ -->
+        <path
+            android:strokeColor="#81D4FA"
+            android:strokeWidth="0.8"
+            android:pathData="M37.5,50v10 M30,55h15 M82.5,50v10 M75,55h15 M37.5,65v10 M30,70h15 M82.5,65v10 M75,70h15" />
+    </group>
+
+    <!-- الشرفة -->
+    <group>
+        <!-- أرضية الشرفة -->
+        <path
+            android:fillColor="#F8F8F8"
+            android:pathData="M30,85h60v5H30z" />
+
+        <!-- درابزين الشرفة -->
+        <path
+            android:fillColor="#E8E8E8"
+            android:pathData="M30,85h60v3H30z" />
+
+        <!-- أعمدة الشرفة -->
+        <path
+            android:strokeColor="#C8C8C8"
+            android:strokeWidth="1.5"
+            android:pathData="M35,85v5 M45,85v5 M55,85v5 M65,85v5 M75,85v5 M85,85v5" />
+    </group>
+
+    <!-- مصابيح خارجية -->
+    <group>
+        <!-- المصباح الأيسر -->
+        <path
+            android:fillColor="#795548"
+            android:pathData="M20,50h4v4h-4z" />
+        <path
+            android:fillColor="#FFF59D"
+            android:pathData="M19,54h6v3h-6z" />
+
+        <!-- المصباح الأيمن -->
+        <path
+            android:fillColor="#795548"
+            android:pathData="M96,50h4v4h-4z" />
+        <path
+            android:fillColor="#FFF59D"
+            android:pathData="M95,54h6v3h-6z" />
+
+        <!-- ضوء المصابيح -->
+        <path
+            android:fillColor="#40FFD600"
+            android:pathData="M18,57h8v5h-8z M94,57h8v5h-8z" />
+    </group>
+
+    <!-- نباتات زينة -->
+    <group>
+        <!-- نبات يسار -->
+        <path
+            android:fillColor="#388E3C"
+            android:pathData="M10,70a12,15 0,1 1,0 0.1z" />
+        <path
+            android:fillColor="#2E7D32"
+            android:pathData="M8,65l3,-5 -2,8 2,-8 -3,5z M12,67l4,-4 -1,7 1,-7 -4,4z" />
+
+        <!-- نبات يمين -->
+        <path
+            android:fillColor="#388E3C"
+            android:pathData="M110,75a10,12 0,1 1,0 0.1z" />
+        <path
+            android:fillColor="#2E7D32"
+            android:pathData="M108,70l2,-4 -1,6 1,-6 -2,4z M112,72l3,-3 -1,5 1,-5 -3,3z" />
+    </group>
+
+    <!-- مدخنة -->
+    <group>
+        <path
+            android:fillColor="#E8E8E8"
+            android:pathData="M70,25h8v15h-8z" />
+        <path
+            android:fillColor="#F0F0F0"
+            android:pathData="M69,25h10v3h-10z" />
+
+        <!-- دخان -->
+        <path
+            android:fillColor="#60FFFFFF"
+            android:pathData="M73,15a4,10 0,1 1,0 0.1z" />
+        <path
+            android:fillColor="#40FFFFFF"
+            android:pathData="M72,10a6,8 0,1 1,0 0.1z" />
+    </group>
+
+    <!-- اسم التطبيق "ساكن" بشكل دقيق -->
+    <group>
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M48,95h4v4h-4z M54,95h4v4h-4z M60,95h4v4h-4z M48,100h16v2H48z" />
+    </group>
+
+</vector>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="800dp"
+    android:viewportWidth="400"
+    android:viewportHeight="800">
+
+    <!-- خلفية متدرجة -->
+    <path
+        android:fillColor="@color/gradient_start"
+        android:pathData="M0,0h400v800H0z" />
+
+    <!-- تأثيرات هندسية عصرية -->
+    <path
+        android:fillColor="#30FFFFFF"
+        android:pathData="M0,0h400v200c-50,0 -100,50 -150,50S150,150 100,150S0,200 0,200V0z" />
+
+    <path
+        android:fillColor="#20FFFFFF"
+        android:pathData="M400,800h-400v-200c50,0 100,-50 150,-50s100,50 150,50s100,-50 100,-50V800z" />
+
+    <!-- دوائر زخرفية -->
+    <path
+        android:fillColor="#15FFFFFF"
+        android:pathData="M100,150a80,80 0,1 1,0 0.1z" />
+
+    <path
+        android:fillColor="#10FFFFFF"
+        android:pathData="M300,600a120,120 0,1 1,0 0.1z" />
+
+    <!-- خطوط زخرفية -->
+    <path
+        android:strokeColor="#25FFFFFF"
+        android:strokeWidth="2"
+        android:pathData="M50,300l100,-50 M350,400l-150,100" />
+
+</vector>

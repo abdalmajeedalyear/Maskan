@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <!-- ✅ شارة النوع (للإيجار/للبيع) في أعلى الصورة -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/tvTypeBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginTop="230dp"
+        android:layout_marginStart="23dp"
+        android:gravity="center"
+        android:paddingHorizontal="12dp"
+        android:text="للإيجار"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:backgroundTint="#FF9800"
+        app:cornerRadius="12dp"
+        app:elevation="2dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:padding="0dp">
+
+        <!-- ✅ صورة العقار -->
+        <FrameLayout
+            android:layout_marginHorizontal="-5dp"
+            android:id="@+id/imageContainer"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+
+            >
+
+            <!-- شريط التقييم -->
+
+            <ImageView
+                android:id="@+id/ivProperty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="صورة العقار"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_placeholder" />
+
+            <LinearLayout
+                android:id="@+id/ratingLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="8dp"
+                android:background="@drawable/rating_background"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_star_filled"
+                    android:tint="#FFD700" />
+
+                <TextView
+                    android:id="@+id/tvRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="4.8"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- ✅ محتوى النص -->
+        <LinearLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageContainer"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:paddingEnd="8dp">
+
+            <!-- العنوان -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lineSpacingExtra="2dp"
+                android:maxLines="2"
+                android:text="فيلا فاخرة مع مسبح خاص"
+                android:textColor="#1A1A1A"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- الموقع -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_location_pin"
+                    android:tint="#666666" />
+
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="حي النخيل، الرياض - قريب من المركز التجاري"
+                    android:textColor="#666666"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <!-- السعر -->
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/price_background"
+                android:gravity="center"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:text="1,200,000 ر.س"
+                android:textColor="#2196F3"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- ✅ المواصفات المحسنة (غرف، حمامات، مساحة) -->
+        <!-- تم نقلها لتكون فوق الأزرار وأكثر وضوحاً -->
+
+        <!-- ✅ شريط الإجراءات السفلي -->
+        <!-- تم نقله ليكون تحت المواصفات -->
+
+        <LinearLayout
+            android:id="@+id/specsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="70dp"
+            android:layout_below="@+id/contentLayout"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+
+            android:background="@drawable/specs_background"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingVertical="0dp">
+
+            <!-- الغرف -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_bed"
+                        android:tint="#4CAF50" />
+
+                    <TextView
+                        android:id="@+id/tvBedrooms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="4"
+                        android:textColor="#4CAF50"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="غرف"
+                    android:textColor="#666666"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <!-- فاصل عمودي -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="24dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="#E0E0E0" />
+
+            <!-- الحمامات -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_bath"
+                        android:tint="#FF9800" />
+
+                    <TextView
+                        android:id="@+id/tvBathrooms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="3"
+                        android:textColor="#FF9800"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="حمام"
+                    android:textColor="#666666"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <!-- فاصل عمودي -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="24dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="#E0E0E0" />
+
+            <!-- المساحة -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_area"
+                        android:tint="#9C27B0" />
+
+                    <TextView
+                        android:id="@+id/tvArea"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="250"
+                        android:textColor="#9C27B0"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="م²"
+                    android:textColor="#666666"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:layout_below="@id/specsLayout"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- زر التقييم -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRate"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+
+                android:textColor="#FF9800"
+                android:textSize="12sp"
+                app:backgroundTint="@android:color/white"
+                app:cornerRadius="18dp"
+                app:icon="@drawable/ic_star_outline"
+                app:iconGravity="textStart"
+                app:iconPadding="4dp"
+                app:iconTint="#FF9800"
+                app:strokeColor="#FF9800"
+                app:strokeWidth="1dp" />
+
+            <!-- زر المشاركة -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShare"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginHorizontal="4dp"
+                android:layout_weight="1"
+
+                android:textColor="#2196F3"
+                android:textSize="12sp"
+                app:backgroundTint="@android:color/white"
+                app:cornerRadius="18dp"
+                app:icon="@drawable/ic_share"
+                app:iconGravity="textStart"
+                app:iconPadding="4dp"
+                app:iconTint="#2196F3"
+                app:strokeColor="#2196F3"
+                app:strokeWidth="1dp" />
+
+            <!-- زر الاتصال -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnContact"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:gravity="center"
+
+                android:textColor="#4CAF50"
+                android:textSize="12sp"
+                app:backgroundTint="@android:color/white"
+                app:cornerRadius="18dp"
+                app:icon="@drawable/ic_phone"
+                app:iconGravity="textStart"
+                app:iconPadding="4dp"
+                app:iconTint="#4CAF50"
+                app:strokeColor="#4CAF50"
+                app:strokeWidth="1dp" />
+
+            <!-- زر الحذف -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDelete"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:gravity="center"
+
+                android:textColor="#FF3B30"
+                android:textSize="12sp"
+                app:backgroundTint="@android:color/white"
+                app:cornerRadius="18dp"
+                app:icon="@drawable/ic_delete"
+                app:iconGravity="textStart"
+                app:iconPadding="4dp"
+                app:iconTint="#FF3B30"
+                app:strokeColor="#FF3B30"
+                app:strokeWidth="1dp" />
+
+            <!-- زر المفضلة -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFavorite"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:gravity="center"
+
+                android:textColor="#757575"
+                android:textSize="12sp"
+                app:backgroundTint="@android:color/white"
+                app:cornerRadius="18dp"
+                app:icon="@drawable/ic_heart_outline"
+                app:iconGravity="textStart"
+                app:iconPadding="4dp"
+                app:iconTint="#757575"
+                app:strokeColor="#757575"
+                app:strokeWidth="1dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

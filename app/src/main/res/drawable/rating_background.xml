@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- خلفية داكنة شفافة -->
+    <solid android:color="#CC000000" /> <!-- 80% شفافية سوداء -->
+
+    <!-- زوايا دائرية -->
+    <corners android:radius="13dp" />
+
+    <!-- حدود ذهبية خفيفة -->
+    <stroke
+        android:width="0.8dp"
+        android:color="#40FFD700" /> <!-- ذهبي شفاف 25% -->
+</shape>

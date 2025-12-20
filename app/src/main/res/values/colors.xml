@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+        <!-- التدرج الذهبي المحسن -->
+        <color name="gradient_gold">#FFB300</color>
+
+        <!-- ألوان ذهبية بديلة يمكنك تجربتها -->
+        <!-- <color name="gradient_gold">#FFA000</color> -->
+        <!-- <color name="gradient_gold">#FF8F00</color> -->
+        <!-- <color name="gradient_gold">#FF6F00</color> -->
+
+        <!-- ألوان تكميلية -->
+        <color name="premium_white">#FFFFFF</color>
+        <color name="premium_dark">#4E342E</color>
+        <color name="accent_gold">#FFD700</color>
+
+
+
+-----------------------------login-------------------------------
+    <!-- ألوان الخلفية -->
+    <color name="gradient_start">#2196F3</color>
+    <color name="gradient_end">#1976D2</color>
+
+    <!-- ألوان الأزرار -->
+    <color name="button_start">#FF6B35</color>
+    <color name="button_end">#FF8C42</color>
+
+    <!-- ألوان إضافية -->
+
+    >
+    ------------------------------------------------------------------
+    <color name="primary_color">#2196F3</color>
+    ------------------------------------------------------------------
+    <!-- الألوان الأساسية -->
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#1976D2</color>
+    <color name="colorAccent">#FF4081</color> <!-- اللون الوردي للمفضلة -->
+    <color name="nn">#4FC3F7</color>
+    <!-- ألوان إضافية -->
+    <color name="color_sale">#4CAF50</color> <!-- أخضر للبيع -->
+    <color name="color_rent">#2196F3</color> <!-- أزرق للإيجار -->
+
+    <!-- ألوان النص -->
+    <color name="text_primary">#333333</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_tertiary">#999999</color>
+
+    <!-- ألوان الخلفية -->
+    <color name="background_light">#F8F9FA</color>
+    <color name="background_white">#FFFFFF</color>
+    -------------------------------------------------------------------
+    <!-- ألوان طرق العرض -->
+    <color name="color_daily">#FF9800</color>     <!-- برتقالي للإيجار اليومي -->
+    <color name="color_monthly">#9C27B0</color>   <!-- بنفسجي للإيجار الشهري -->
+    <color name="color_yearly">#795548</color>    <!-- بني للإيجار السنوي -->
+
+
+
+    <!-- ألوان شريط التنقل السفلي -->
+    <color name="bottom_nav_icon_unselected">#666666</color>
+    <color name="bottom_nav_icon_selected">#2196F3</color>
+    <color name="bottom_nav_text_unselected">#666666</color>
+    <color name="bottom_nav_text_selected">#2196F3</color>
+
+    <!-- الألوان الأساسية -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+
+
+    <color name="gray">#757575</color>
+    <color name="light_gray">#E0E0E0</color>
+
+</resources>

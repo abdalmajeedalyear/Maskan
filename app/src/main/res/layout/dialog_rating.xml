@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- العنوان -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="تقييم العقار"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- النجوم -->
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1"
+        android:rating="0"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- ✅ أضف هذا TextView -->
+    <TextView
+        android:id="@+id/tvRatingHint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="⭐ اختر من 1 إلى 5 نجوم"
+        android:textSize="12sp"
+        android:textColor="#FF9800"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- التعليق -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="تعليقك (اختياري):"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/etComment"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:hint="اكتب تعليقك هنا..."
+        android:inputType="textMultiLine"
+        android:gravity="top|start"
+        android:padding="12dp"
+        android:background="@drawable/edittext_background"
+        android:textSize="14sp"/>
+
+</LinearLayout>

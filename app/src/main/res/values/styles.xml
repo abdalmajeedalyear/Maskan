@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme الأساسي -->
+    <!-- إعادة تعيين الألوان إلى الوضع الافتراضي -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- الألوان الأصلية للتطبيق -->
+        <item name="colorPrimary">#3F51B5</item>
+        <item name="colorPrimaryDark">#303F9F</item>
+        <item name="colorAccent">#FF4081</item>
+
+        <!-- إلغاء تأثيرات MaterialComponents -->
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="colorControlNormal">?attr/colorPrimary</item>
+        <item name="colorControlActivated">?attr/colorAccent</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
+    </style>
+</resources>

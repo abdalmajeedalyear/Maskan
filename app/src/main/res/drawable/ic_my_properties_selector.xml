@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- حالة التحديد (Selected) -->
+    <item
+        android:drawable="@drawable/ic_my_properties_selected"
+        android:state_selected="true"
+        android:state_checked="true" />
+
+    <!-- الحالة العادية (Normal) -->
+    <item
+        android:drawable="@drawable/ic_my_properties" />
+</selector>

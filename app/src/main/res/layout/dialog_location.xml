@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- العنوان -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="إدخال إحداثيات الموقع"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:paddingBottom="8dp" />
+
+    <!-- حقل خط العرض -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="خط العرض (Latitude)"
+        android:textSize="14sp"
+        android:textColor="#555555"
+        android:paddingTop="8dp" />
+
+    <EditText
+        android:id="@+id/etLatitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal|numberSigned"
+        android:hint="مثال: 15.3694"
+        android:padding="12dp"
+        android:background="@drawable/edittext_background" />
+
+    <!-- حقل خط الطول -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="خط الطول (Longitude)"
+        android:textSize="14sp"
+        android:textColor="#555555"
+        android:paddingTop="12dp" />
+
+    <EditText
+        android:id="@+id/etLongitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal|numberSigned"
+        android:hint="مثال: 44.1910"
+        android:padding="12dp"
+        android:background="@drawable/edittext_background" />
+
+    <!-- ✅ هذا هو tvHint الذي كان مفقوداً -->
+    <TextView
+        android:id="@+id/tvHint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="إحداثيات المدن اليمنية الرئيسية ستظهر هنا"
+        android:textSize="12sp"
+        android:textColor="#757575"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp" />
+
+</LinearLayout>
