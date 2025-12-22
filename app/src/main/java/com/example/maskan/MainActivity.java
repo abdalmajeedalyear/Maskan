@@ -2,6 +2,7 @@ package com.example.maskan;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +23,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        checkUserStatus();
         setContentView(R.layout.activity_main);
 
         initializeViews();
@@ -352,6 +353,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void openProfile() {
+        Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
+        startActivity(intent);
         Toast.makeText(this, "فتح الملف الشخصي", Toast.LENGTH_SHORT).show();
     }
 
@@ -378,7 +381,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void logout() {
-        Intent intent = new Intent(MainActivity.this, login.class);
+        Intent intent = new Intent(MainActivity.this,login.class);
         startActivity(intent);
         finish();
     }
@@ -560,6 +563,84 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
     }
+
+
+
+
+
+
+
+
+
+
+    private void checkUserStatus() {
+        SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
+
+        boolean isLoggedIn = prefs.getBoolean("is_logged_in", false);
+        Log.d("MAIN_DEBUG", "isLoggedIn: " + isLoggedIn);
+
+        if (!isLoggedIn) {
+            Log.d("MAIN_DEBUG", "غير مسجل دخول - الذهاب إلى Login");
+            goToActivity(login.class);
+            return;
+        }
+
+        String userEmail = prefs.getString("user_email", "");
+        Log.d("MAIN_DEBUG", "userEmail: " + userEmail);
+
+        // ✅ إزالة forceQuestions (التعليق المؤقت)
+        // boolean forceQuestions = true; // ⚠️ غير هذا إلى false
+
+        // ✅ الكود الصحيح:
+        boolean questionsCompleted = prefs.getBoolean("questions_completed_" + userEmail, false);
+        Log.d("MAIN_DEBUG", "questions_completed key: questions_completed_" + userEmail);
+        Log.d("MAIN_DEBUG", "questionsCompleted: " + questionsCompleted);
+
+        if (!questionsCompleted) {
+            Log.d("MAIN_DEBUG", "لم يكمل الأسئلة - الذهاب إلى QuestionsActivity");
+            goToActivity(QuestionsActivity.class);
+            return;
+        }
+
+        Log.d("MAIN_DEBUG", "كل شيء جيد - تحميل MainActivity");
+        loadMainUI();
+    }
+
+    private void goToActivity(Class<?> activityClass) {
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
+        finish();
+    }
+
+    private void loadMainUI() {
+        // تحميل التخطيط الرئيسي
+        setContentView(R.layout.activity_main);
+
+        // هنا يمكنك تهيئة باقي عناصر الواجهة
+        setupNavigation();
+        loadUserData();
+    }
+
+    private void setupNavigation() {
+        // TODO: إعداد Bottom Navigation أو Navigation Drawer
+    }
+
+    private void loadUserData() {
+        SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
+        String userName = prefs.getString("user_name", "مستخدم");
+        String userEmail = prefs.getString("user_email", "");
+
+        Log.d("MainActivity", "مرحباً " + userName + " (" + userEmail + ")");
+
+        // عرض اسم المستخدم في الواجهة إذا كان هناك TextView
+        // TextView tvWelcome = findViewById(R.id.tvWelcome);
+        // if (tvWelcome != null) {
+        //     tvWelcome.setText("مرحباً " + userName);
+        // }
+    }
+
+
+
 
 
     //دالة شريط التنقل

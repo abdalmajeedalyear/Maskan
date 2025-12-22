@@ -14,7 +14,7 @@ import java.util.List;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "maskan.db";
-    private static final int DATABASE_VERSION = 4; // ✅ زيادة الإصدار لإضافة جدول المفضلات
+    private static final int DATABASE_VERSION =6; // ✅ زيادة الإصدار لإضافة جدول المفضلات
 
     // جدول العقارات
     private static final String TABLE_PROPERTIES = "properties";
@@ -43,6 +43,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PROPERTY_ID = "property_id";
     private static final String COLUMN_USER_ID = "user_id";
     private static final String COLUMN_ADDED_AT = "added_at";
+
+    // ================ ✅ جداول المستخدمين الجديدة ================
+    private static final String TABLE_USERS = "users";
+
+    // أسماء أعمدة جدول المستخدمين - جميعها فريدة
+    private static final String COLUMN_USER_ID_User = "user_id";
+    private static final String COLUMN_USER_FULL_NAME = "user_full_name";
+    private static final String COLUMN_USER_EMAIL = "user_email";
+    private static final String COLUMN_USER_PHONE = "user_phone";
+    private static final String COLUMN_USER_PASSWORD = "user_password";
+    private static final String COLUMN_USER_PROFILE_IMAGE = "user_profile_image";
+    private static final String COLUMN_CREATED_AT_User = "user_created_at";
+
+    // ✅ جدول تفضيلات المستخدم
+    private static final String TABLE_USER_PREFERENCES = "user_preferences";
+    private static final String COLUMN_PREF_ID = "pref_id";
+
+    private static final String COLUMN_DISCOVERY_SOURCE = "discovery_source";
+    private static final String COLUMN_DOWNLOAD_REASON = "download_reason";
+    private static final String COLUMN_PROPERTY_TYPES = "property_types";
+    private static final String COLUMN_PREF_LATITUDE = "pref_latitude";
+    private static final String COLUMN_PREF_LONGITUDE = "pref_longitude";
+    private static final String COLUMN_ADDITIONAL_INFO = "additional_info";
+
+
+
 
     // ✅ جعل Constructor خاص
     private DatabaseHelper(Context context) {
@@ -121,11 +147,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "FOREIGN KEY(property_id) REFERENCES properties(id)" +
                 ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
+
+
+        // ✅ إنشاء جدول المستخدمين - استخدم الأسماء الجديدة
+        String CREATE_USERS_TABLE =
+                "CREATE TABLE " + TABLE_USERS + "("
+                        + COLUMN_USER_ID_User + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                        + COLUMN_USER_FULL_NAME + " TEXT NOT NULL,"
+                        + COLUMN_USER_EMAIL + " TEXT UNIQUE NOT NULL,"
+                        + COLUMN_USER_PHONE + " TEXT,"
+                        + COLUMN_USER_PASSWORD + " TEXT NOT NULL,"
+                        + COLUMN_USER_PROFILE_IMAGE + " TEXT,"
+                        + COLUMN_CREATED_AT_User + " DATETIME DEFAULT CURRENT_TIMESTAMP"
+                        + ")";
+        db.execSQL(CREATE_USERS_TABLE);
+
+        // ✅ إنشاء جدول تفضيلات المستخدم
+        // في DatabaseHelper.java، تأكد من:
+        String CREATE_PREFERENCES_TABLE =
+                "CREATE TABLE " + TABLE_USER_PREFERENCES + "("
+                        + COLUMN_PREF_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                        + "pref_user_email" + " TEXT NOT NULL,"  // ⚠️ يجب أن يكون الاسم مطابق
+                        + "pref_discovery_source" + " TEXT,"
+                        + "pref_download_reason" + " TEXT,"
+                        + "pref_property_types" + " TEXT,"
+                        + "pref_latitude" + " REAL,"
+                        + "pref_longitude" + " REAL,"
+                        + "pref_additional_info" + " TEXT"
+                        + ")";
+        db.execSQL(CREATE_PREFERENCES_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (oldVersion < 3) { // ✅ زيادة الإصدار إلى 3
+        if (oldVersion < 3)  { // ✅ زيادة الإصدار إلى 3
             // إنشاء الجداول الجديدة
             String CREATE_RATINGS_TABLE = "CREATE TABLE IF NOT EXISTS property_ratings (" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -166,6 +221,73 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             } catch (Exception e) {
                 Log.e("DatabaseHelper", "خطأ أثناء إضافة العمود sale_type: " + e.getMessage());
             }*/
+        }
+
+
+        if (oldVersion < 5) {
+            try {
+                // إنشاء جدول المستخدمين
+                String CREATE_USERS_TABLE =
+                        "CREATE TABLE IF NOT EXISTS " + TABLE_USERS + "("
+                                + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                                + COLUMN_USER_FULL_NAME + " TEXT NOT NULL,"
+                                + COLUMN_USER_EMAIL + " TEXT UNIQUE NOT NULL,"
+                                + COLUMN_USER_PHONE + " TEXT,"
+                                + COLUMN_USER_PASSWORD + " TEXT NOT NULL,"
+                                + COLUMN_USER_PROFILE_IMAGE + " TEXT,"
+                                + COLUMN_CREATED_AT_User + " DATETIME DEFAULT CURRENT_TIMESTAMP"
+                                + ")";
+                db.execSQL(CREATE_USERS_TABLE);
+
+                // إنشاء جدول التفضيلات
+                String CREATE_PREFERENCES_TABLE =
+                        "CREATE TABLE IF NOT EXISTS " + TABLE_USER_PREFERENCES + "("
+                                + COLUMN_PREF_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                                + COLUMN_USER_EMAIL + " TEXT NOT NULL,"
+                                + COLUMN_DISCOVERY_SOURCE + " TEXT,"
+                                + COLUMN_DOWNLOAD_REASON + " TEXT,"
+                                + COLUMN_PROPERTY_TYPES + " TEXT,"
+                                + COLUMN_PREF_LATITUDE + " REAL,"
+                                + COLUMN_PREF_LONGITUDE + " REAL,"
+                                + COLUMN_ADDITIONAL_INFO + " TEXT"
+                                + ")";
+                db.execSQL(CREATE_PREFERENCES_TABLE);
+
+                Log.d("DatabaseHelper", "✅ تم إضافة جداول المستخدمين والتفضيلات في الترقية إلى الإصدار 5");
+
+            } catch (Exception e) {
+                Log.e("DatabaseHelper", "❌ خطأ في إنشاء جداول المستخدمين: " + e.getMessage());
+            }
+        }
+
+
+
+        if (oldVersion < 6) {
+            try {
+                Log.d("DB_UPGRADE", "الترقية إلى الإصدار 6: إصلاح جدول user_preferences");
+
+                // 1. حذف الجدول القديم إذا كان موجوداً
+                db.execSQL("DROP TABLE IF EXISTS user_preferences");
+
+                // 2. إنشاء الجدول الجديد مع الأعمدة الصحيحة
+                String CREATE_PREFERENCES_TABLE =
+                        "CREATE TABLE user_preferences("
+                                + "pref_id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                                + "pref_user_email TEXT NOT NULL,"  // ✅ هذا هو الاسم الصحيح
+                                + "pref_discovery_source TEXT,"
+                                + "pref_download_reason TEXT,"
+                                + "pref_property_types TEXT,"
+                                + "pref_latitude REAL,"
+                                + "pref_longitude REAL,"
+                                + "pref_additional_info TEXT"
+                                + ")";
+                db.execSQL(CREATE_PREFERENCES_TABLE);
+
+                Log.d("DB_UPGRADE", "✅ تم إنشاء جدول user_preferences بنجاح");
+
+            } catch (Exception e) {
+                Log.e("DB_UPGRADE", "❌ خطأ في ترقية قاعدة البيانات: " + e.getMessage());
+            }
         }
     }
 
@@ -950,4 +1072,235 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         }
     }
+
+
+
+
+
+
+
+
+
+
+    // ==================== دوال إدارة المستخدمين ====================
+
+    // ✅ إضافة مستخدم جديد
+    public long addUser(String fullName, String email, String phone, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_USER_FULL_NAME, fullName);
+        values.put(COLUMN_USER_EMAIL, email);
+        values.put(COLUMN_USER_PHONE, phone);
+        values.put(COLUMN_USER_PASSWORD, hashPassword(password)); // تأكد من وجود دالة hashPassword
+
+        try {
+            long result = db.insert(TABLE_USERS, null, values);
+            Log.d("DatabaseHelper", "تم إضافة مستخدم جديد - ID: " + result + " - البريد: " + email);
+            return result;
+        } catch (Exception e) {
+            Log.e("DatabaseHelper", "خطأ في إضافة مستخدم: " + e.getMessage());
+            return -1;
+        }
+    }
+
+    // ✅ التحقق من بيانات الدخول
+    public boolean checkUserCredentials(String email, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+
+        try {
+            String query = "SELECT " + COLUMN_USER_ID + " FROM " + TABLE_USERS +
+                    " WHERE " + COLUMN_USER_EMAIL + " = ? AND " +
+                    COLUMN_USER_PASSWORD + " = ?";
+            cursor = db.rawQuery(query, new String[]{email, hashPassword(password)});
+
+            boolean exists = cursor.getCount() > 0;
+            Log.d("DatabaseHelper", "التحقق من بيانات الدخول: " + email + " - النتيجة: " + exists);
+            return exists;
+        } catch (Exception e) {
+            Log.e("DatabaseHelper", "خطأ في التحقق من بيانات الدخول: " + e.getMessage());
+            return false;
+        } finally {
+            if (cursor != null) cursor.close();
+        }
+    }
+
+    // ✅ التحقق إذا كان البريد الإلكتروني مستخدم مسبقاً
+    public boolean isEmailExists(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+
+        try {
+            cursor = db.query(TABLE_USERS,
+                    new String[]{COLUMN_USER_ID},
+                    COLUMN_USER_EMAIL + " = ?",
+                    new String[]{email},
+                    null, null, null);
+
+            return cursor.getCount() > 0;
+        } catch (Exception e) {
+            Log.e("DatabaseHelper", "خطأ في التحقق من البريد: " + e.getMessage());
+            return false;
+        } finally {
+            if (cursor != null) cursor.close();
+        }
+    }
+
+    // ✅ الحصول على بيانات المستخدم
+    public User getUserByEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+        User user = null;
+
+        try {
+            String query = "SELECT * FROM " + TABLE_USERS +
+                    " WHERE " + COLUMN_USER_EMAIL + " = ?";
+            cursor = db.rawQuery(query, new String[]{email});
+
+            if (cursor.moveToFirst()) {
+                user = new User();
+                user.setId(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_USER_ID)));
+                user.setFullName(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USER_FULL_NAME)));
+                user.setEmail(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USER_EMAIL)));
+                user.setPhone(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USER_PHONE)));
+                user.setProfileImage(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USER_PROFILE_IMAGE)));
+                user.setCreatedAt(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CREATED_AT)));
+            }
+
+            return user;
+        } catch (Exception e) {
+            Log.e("DatabaseHelper", "خطأ في جلب بيانات المستخدم: " + e.getMessage());
+            return null;
+        } finally {
+            if (cursor != null) cursor.close();
+        }
+    }
+
+    // ✅ تحديث بيانات المستخدم
+    public boolean updateUser(String email, String fullName, String phone, String profileImage) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_USER_FULL_NAME, fullName);
+        values.put(COLUMN_USER_PHONE, phone);
+        if (profileImage != null) {
+            values.put(COLUMN_USER_PROFILE_IMAGE, profileImage);
+        }
+
+        try {
+            int rowsAffected = db.update(TABLE_USERS, values,
+                    COLUMN_USER_EMAIL + " = ?",
+                    new String[]{email});
+            return rowsAffected > 0;
+        } catch (Exception e) {
+            Log.e("DatabaseHelper", "خطأ في تحديث بيانات المستخدم: " + e.getMessage());
+            return false;
+        }
+    }
+
+    // ✅ دالة تشفير كلمة المرور (تأكد من إضافتها)
+    private String hashPassword(String password) {
+        try {
+            // استخدام SHA-256 للتشفير (يمكنك استخدام مكتبة أقوى في التطبيق النهائي)
+            java.security.MessageDigest digest = java.security.MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(password.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            return bytesToHex(hash);
+        } catch (Exception e) {
+            Log.e("DatabaseHelper", "خطأ في تشفير كلمة المرور: " + e.getMessage());
+            return password; // ⚠️ مؤقتاً فقط للتطوير
+        }
+    }
+
+    // ✅ تحويل البايتات إلى نص سداسي عشر
+    private String bytesToHex(byte[] bytes) {
+        StringBuilder hexString = new StringBuilder();
+        for (byte b : bytes) {
+            String hex = Integer.toHexString(0xff & b);
+            if (hex.length() == 1) hexString.append('0');
+            hexString.append(hex);
+        }
+        return hexString.toString();
+    }
+
+// ==================== دوال تفضيلات المستخدم ====================
+
+    // ✅ حفظ تفضيلات المستخدم
+    // ✅ دالة لحفظ تفضيلات المستخدم
+    public boolean saveUserPreferences(String userEmail, String discoverySource,
+                                       String downloadReason, String propertyTypes,
+                                       double latitude, double longitude, String additionalInfo) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        // ⚠️ تأكد من مطابقة الأسماء مع تعريف الجدول
+        values.put("pref_user_email", userEmail);
+        values.put("pref_discovery_source", discoverySource);
+        values.put("pref_download_reason", downloadReason);
+        values.put("pref_property_types", propertyTypes);
+        values.put("pref_latitude", latitude);
+        values.put("pref_longitude", longitude);
+        values.put("pref_additional_info", additionalInfo);
+
+        try {
+            // حذف التفضيلات القديمة أولاً
+            db.delete(TABLE_USER_PREFERENCES,
+                    "pref_user_email = ?",  // ⚠️ نفس الاسم
+                    new String[]{userEmail});
+
+            // إضافة التفضيلات الجديدة
+            long result = db.insert(TABLE_USER_PREFERENCES, null, values);
+            Log.d("DatabaseHelper", "تم حفظ تفضيلات المستخدم: " + userEmail);
+            return result != -1;
+        } catch (Exception e) {
+            Log.e("DatabaseHelper", "خطأ في حفظ تفضيلات المستخدم: " + e.getMessage());
+            return false;
+        }
+    }
+
+    // ✅ الحصول على تفضيلات المستخدم
+    public Cursor getUserPreferences(String userEmail) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.query(TABLE_USER_PREFERENCES, null,
+                COLUMN_USER_EMAIL + " = ?",
+                new String[]{userEmail},
+                null, null, null);
+    }
+
+    // ✅ تحديث جدول المفضلات لاستخدام معرف المستخدم الحقيقي
+    public boolean addToFavorites(int propertyId, String userEmail) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        // الحصول على معرف المستخدم من البريد
+        User user = getUserByEmail(userEmail);
+        if (user == null) return false;
+
+        values.put(COLUMN_PROPERTY_ID, propertyId);
+        values.put(COLUMN_USER_ID, user.getId()); // ✅ استخدام معرف المستخدم الحقيقي
+
+        try {
+            long result = db.insert(TABLE_FAVORITES, null, values);
+            return result != -1;
+        } catch (Exception e) {
+            Log.e("DatabaseHelper", "خطأ في إضافة المفضلة: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean isPreferencesTableExists() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(
+                "SELECT name FROM sqlite_master WHERE type='table' AND name='user_preferences'",
+                null
+        );
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        db.close();
+
+        Log.d("DB_DEBUG", "جدول user_preferences موجود: " + exists);
+        return exists;
+    }
+
+
 }
