@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/login_background"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- رأس الصفحة -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="مسكن"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:elevation="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ساعدنا في تحسين تجربتك"
+                android:textColor="#E3F2FD"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+        <!-- بطاقة الأسئلة -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="12dp"
+            app:cardBackgroundColor="#FFFFFF"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- عنوان البطاقة -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="معلومات إضافية"
+                    android:textColor="#333333"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="20dp" />
+
+                <!-- كيف عرفت عن التطبيق؟ -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="كيف عرفت عن التطبيق؟"
+                    android:textColor="#555555"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="12dp" />
+
+                <RadioGroup
+                    android:id="@+id/rgDiscoverySource"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/rbFriend"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="صديق"
+                        android:textColor="#333333"
+                        android:buttonTint="#2196F3" />
+
+                    <RadioButton
+                        android:id="@+id/rbSocialMedia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="وسائل التواصل الاجتماعي"
+                        android:textColor="#333333"
+                        android:buttonTint="#2196F3" />
+
+                    <RadioButton
+                        android:id="@+id/rbSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="بحث على الإنترنت"
+                        android:textColor="#333333"
+                        android:buttonTint="#2196F3" />
+
+                    <RadioButton
+                        android:id="@+id/rbAds"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="إعلان"
+                        android:textColor="#333333"
+                        android:buttonTint="#2196F3" />
+
+                    <RadioButton
+                        android:id="@+id/rbOtherSource"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="أخرى"
+                        android:textColor="#333333"
+                        android:buttonTint="#2196F3" />
+
+                </RadioGroup>
+
+                <!-- سبب تنزيل التطبيق -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ما هو سبب تنزيلك للتطبيق؟"
+                    android:textColor="#555555"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="#2196F3"
+                    app:hintTextColor="#666666"
+                    android:layout_marginBottom="24dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDownloadReason"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:hint="اكتب سبب تنزيلك للتطبيق..."
+                        android:inputType="textMultiLine"
+                        android:textColor="#333333"
+                        android:gravity="right|top"
+                        android:maxLines="4" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- نوع العقارات المطلوبة -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ما نوع العقارات التي تبحث عنها؟"
+                    android:textColor="#555555"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="24dp">
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cbForSale"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="عقارات للبيع"
+                        android:textColor="#333333"
+                        app:buttonTint="#2196F3" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cbForRent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="عقارات للإيجار"
+                        android:textColor="#333333"
+                        app:buttonTint="#2196F3" />
+
+                </LinearLayout>
+
+                <!-- تحديد الموقع -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="حدد موقع سكنك (اختياري)"
+                    android:textColor="#555555"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="12dp" />
+
+                <Button
+                    android:id="@+id/btnSelectLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="اختر موقع على الخريطة"
+                    android:textColor="#2196F3"
+                    android:textSize="14sp"
+                    android:background="@drawable/button_outline"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:id="@+id/tvSelectedLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="لم يتم تحديد موقع"
+                    android:textColor="#666666"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="24dp"
+                    android:padding="8dp" />
+
+                <!-- معلومات إضافية -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="معلومات إضافية (اختياري)"
+                    android:textColor="#555555"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="#2196F3"
+                    app:hintTextColor="#666666"
+                    android:layout_marginBottom="30dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAdditionalInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:hint="أي معلومات أخرى تريد مشاركتها..."
+                        android:inputType="textMultiLine"
+                        android:textColor="#333333"
+                        android:gravity="right|top"
+                        android:maxLines="3" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <Button
+                    android:id="@+id/btnSkipForNow"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:text="تخطي الأسئلة للمتابعة (تجريبي)"
+                    android:textColor="#666666"
+                    android:background="@drawable/button_outline"
+                    android:layout_marginBottom="10dp" />
+                <!-- زر الإرسال -->
+                <Button
+                    android:id="@+id/btnSubmitQuestions"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:text="تأكيد والمتابعة"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/button_gradient"
+                    android:elevation="4dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>
