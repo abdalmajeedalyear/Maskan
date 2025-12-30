@@ -44,6 +44,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation(libs.lottie)
+    implementation(libs.cardview)
 
    // implementation(platform("com.google.firebase:firebase-bom:34.7.0"))
    // implementation("com.google.firebase:firebase-analytics")

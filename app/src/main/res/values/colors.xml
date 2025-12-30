@@ -76,4 +76,61 @@
     <color name="gray">#757575</color>
     <color name="light_gray">#E0E0E0</color>
 
+
+
+        <!-- ألوان الرسائل الرئيسية -->
+        <color name="success_color">#4CAF50</color>      <!-- أخضر -->
+        <color name="error_color">#F44336</color>        <!-- أحمر -->
+        <color name="warning_color">#FF9800</color>      <!-- برتقالي -->
+        <color name="info_color">#2196F3</color>         <!-- أزرق -->
+        <color name="delete_color">#E91E63</color>       <!-- وردي -->
+
+        <!-- ألوان خفيفة للخلفيات -->
+        <color name="success_light">#E8F5E9</color>      <!-- أخضر فاتح -->
+        <color name="error_light">#FFEBEE</color>        <!-- أحمر فاتح -->
+        <color name="warning_light">#FFF3E0</color>      <!-- برتقالي فاتح -->
+        <color name="info_light">#E3F2FD</color>         <!-- أزرق فاتح -->
+        <color name="delete_light">#FCE4EC</color>       <!-- وردي فاتح -->
+
+        <!-- ألوان النصوص -->
+        <color name="success_text">#2E7D32</color>       <!-- أخضر داكن للنص -->
+        <color name="error_text">#C62828</color>         <!-- أحمر داكن للنص -->
+        <color name="warning_text">#EF6C00</color>       <!-- برتقالي داكن للنص -->
+        <color name="info_text">#1565C0</color>          <!-- أزرق داكن للنص -->
+        <color name="delete_text">#AD1457</color>        <!-- وردي داكن للنص -->
+
+        <!-- ألوان التطبيق الأساسية -->
+        <color name="primary_dark">#3700B3</color>       <!-- أرجواني داكن -->
+        <color name="primary_light">#BB86FC</color>      <!-- أرجواني فاتح -->
+        <color name="accent_color">#03DAC5</color>       <!-- تركواز -->
+
+        <!-- ألوان محايدة -->
+        <color name="gray_50">#FAFAFA</color>
+        <color name="gray_100">#F5F5F5</color>
+        <color name="gray_200">#EEEEEE</color>
+        <color name="gray_300">#E0E0E0</color>
+        <color name="gray_400">#BDBDBD</color>
+        <color name="gray_500">#9E9E9E</color>
+        <color name="gray_600">#757575</color>
+        <color name="gray_700">#616161</color>
+        <color name="gray_800">#424242</color>
+        <color name="gray_900">#212121</color>
+
+        <!-- ألوان إضافية للتحسينات -->
+        <color name="border_color">#E0E0E0</color>      <!-- لون الحدود -->
+        <color name="shadow_color">#1A000000</color>    <!-- لون الظل (شفاف) -->
+        <color name="overlay_color">#80000000</color>   <!-- لون التعتيم -->
+
+        <!-- ألوان الحالات -->
+        <color name="disabled_color">#BDBDBD</color>    <!-- لون العناصر المعطلة -->
+        <color name="hint_color">#757575</color>        <!-- لون النص المساعد -->
+        <color name="link_color">#1976D2</color>        <!-- لون الروابط -->
+
+        <!-- ألوان التصميم المادي (Material Design) -->
+        <color name="surface_color">#FFFFFF</color>     <!-- لون السطح -->
+        <color name="background_color">#FAFAFA</color>  <!-- لون الخلفية -->
+        <color name="on_surface">#000000</color>        <!-- نص على السطح -->
+        <color name="on_primary">#FFFFFF</color>        <!-- نص على اللون الرئيسي -->
+        <color name="on_accent">#000000</color>         <!-- نص على اللون الثانوي -->
+
 </resources>

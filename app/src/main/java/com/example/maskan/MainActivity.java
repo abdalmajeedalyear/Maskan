@@ -45,6 +45,15 @@ public class MainActivity extends AppCompatActivity {
         checkUserStatus();
         setContentView(R.layout.activity_main);
 
+
+        try {
+            // جرب هذا الكود الآمن
+            testMessageHelper();
+        } catch (Exception e) {
+            // سجل الخطأ لتعرف السبب
+            Log.e("MaskanApp", "Error: " + e.getMessage());
+            Toast.makeText(this, "خطأ: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
         initializeViews();
         databaseHelper = DatabaseHelper.getInstance(this);
         setupToolbar();
@@ -57,6 +66,30 @@ public class MainActivity extends AppCompatActivity {
         // إعداد شريط التنقل السفلي
         setupBottomNavigation();
     }
+
+//___________________________________________الرسائل__________________________________________
+    private void testMessageHelper() {
+        // 1. تأكد أن MessageHelper مُهيأ
+        if (!isMessageHelperInitialized()) {
+            MessageHelper.init(getApplicationContext());
+        }
+
+        // 2. احصل على Instance
+        MessageHelper helper = MessageHelper.getInstance();
+
+        // 3. اختبر بأبسط رسالة
+        helper.showToast("اختبار", MessageHelper.TYPE_INFO);
+    }
+
+    private boolean isMessageHelperInitialized() {
+        try {
+            MessageHelper.getInstance();
+            return true;
+        } catch (IllegalStateException e) {
+            return false;
+        }
+    }
+    //________________________________________________________________________________
 
     private void initializeViews() {
 

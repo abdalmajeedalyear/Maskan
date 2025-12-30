@@ -22,34 +22,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.card.MaterialCardView;
-
-import java.util.ArrayList;
-import java.util.List;
-
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.SeekBar;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -196,7 +168,6 @@ public class SearchActivity extends AppCompatActivity {
         BottomSheetDialog dialog = new BottomSheetDialog(this);
         View view = getLayoutInflater().inflate(R.layout.bottom_sheet_price, null);
         dialog.setContentView(view);
-
         setupPriceBottomSheet(view, dialog);
         dialog.show();
     }
@@ -217,6 +188,7 @@ public class SearchActivity extends AppCompatActivity {
         options.add("للإيجار");
         options.add("للإيجار اليومي");
         options.add("للإيجار الشهري");
+        options.add("للإيجار السنوي");
 
         SimpleListAdapter adapter = new SimpleListAdapter(options, new SimpleListAdapter.OnItemClickListener() {
             @Override

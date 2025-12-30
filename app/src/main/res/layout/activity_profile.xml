@@ -7,10 +7,20 @@
     android:background="#2196F3"
     android:padding="16dp">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <!-- إضافة ProgressBar في بداية LinearLayout الرئيسي -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:visibility="gone" />
 
         <!-- رأس الصفحة -->
         <LinearLayout
@@ -73,28 +83,37 @@
                     android:gravity="center"
                     android:layout_marginBottom="24dp">
 
-                    <!-- صورة دائرية بدون مكتبات خارجية -->
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="250dp"
+                        android:layout_height="200dp"
+                        app:cardCornerRadius="30dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        android:layout_margin="8dp">
                     <ImageView
                         android:id="@+id/ivProfile"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
+                        android:layout_width="250dp"
+                        android:layout_height="200dp"
                         android:src="@android:drawable/ic_menu_camera"
                         android:scaleType="centerCrop"
                         android:background="#FF9800"
                         android:padding="4dp"/>
+                    </androidx.cardview.widget.CardView>
 
                     <!-- زر تغيير الصورة -->
                     <Button
                         android:id="@+id/btnChangePhoto"
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="36dp"
                         android:text="تغيير"
                         android:textSize="12sp"
                         android:layout_below="@id/ivProfile"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="230dp"
                         android:background="@android:drawable/btn_default"
-                        android:textColor="#2196F3" />
+                        android:textColor="#FAFDFF"
+                        android:textStyle="bold"/>
 
                 </RelativeLayout>
 

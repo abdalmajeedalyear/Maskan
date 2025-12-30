@@ -12,13 +12,50 @@
     >
     <!-- شريط الفلترة العلوي الصغير -->
     <LinearLayout
-        android:layout_width="500dp"
+        android:layout_width="550dp"
         android:layout_height="60dp"
         android:background="#FFFFFF"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:paddingHorizontal="12dp"
         android:elevation="4dp">
+
+
+        <LinearLayout
+            android:id="@+id/cardPropertyLocion"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_stats_gradientttttt"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp">
+
+            <TextView
+                android:textColorHint="@color/background_white"
+                android:id="@+id/tvPropertyLocion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="المنطقة"
+                android:textColor="#333333"
+                android:textSize="12sp"
+                android:maxLines="1"
+                android:textStyle="bold"
+
+                android:ellipsize="end" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_arrow_drop_down"
+                android:tint="#FFFEFE" />
+
+        </LinearLayout>
 
         <!-- زر نوع العقار - استخدام LinearLayout بدلاً من MaterialCardView -->
         <LinearLayout
@@ -27,7 +64,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/filter_button_background"
+            android:background="@drawable/bg_rent_gradient"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
@@ -35,8 +72,9 @@
             android:paddingHorizontal="12dp">
 
             <TextView
+                android:textColorHint="@color/background_white"
                 android:id="@+id/tvPropertyType"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -44,13 +82,15 @@
                 android:textColor="#333333"
                 android:textSize="12sp"
                 android:maxLines="1"
+                android:textStyle="bold"
+
                 android:ellipsize="end" />
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/ic_arrow_drop_down"
-                android:tint="#666666" />
+                android:tint="#FFFEFE" />
 
         </LinearLayout>
 
@@ -61,7 +101,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:layout_marginHorizontal="4dp"
-            android:background="@drawable/filter_button_background"
+            android:background="@drawable/button_gradient"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
@@ -69,6 +109,7 @@
             android:paddingHorizontal="12dp">
 
             <TextView
+                android:textStyle="bold"
                 android:id="@+id/tvPrice"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -81,10 +122,10 @@
                 android:ellipsize="end" />
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/ic_arrow_drop_down"
-                android:tint="#666666" />
+                android:tint="#FFFDFD" />
 
         </LinearLayout>
 
@@ -95,7 +136,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:layout_marginHorizontal="4dp"
-            android:background="@drawable/filter_button_background"
+            android:background="@drawable/bg_stats_gradient"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
@@ -104,6 +145,7 @@
 
             <TextView
                 android:id="@+id/tvOfferType"
+                android:textStyle="bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -115,10 +157,10 @@
                 android:ellipsize="end" />
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/ic_arrow_drop_down"
-                android:tint="#666666" />
+                android:tint="#FFFCFC" />
 
         </LinearLayout>
 
@@ -129,7 +171,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:layout_marginStart="8dp"
-            android:background="@drawable/filter_button_background"
+            android:background="@drawable/bg_stats_gradientttt"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
@@ -138,6 +180,7 @@
 
             <TextView
                 android:id="@+id/tvBedrooms"
+                android:textStyle="bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -149,10 +192,10 @@
                 android:ellipsize="end" />
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/ic_arrow_drop_down"
-                android:tint="#666666" />
+                android:tint="#FAF9F9" />
 
         </LinearLayout>
 
